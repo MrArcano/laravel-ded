@@ -74,9 +74,12 @@ class CharacterController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(CharacterRequest $request,Character $character)
     {
-        //
+        $form_data = $request->all();
+        $character->update($form_data);
+
+        return redirect()->route('characters.show',$character);
     }
 
     /**

@@ -14,7 +14,7 @@
             </div>
         @endif
 
-        <form action="{{ route('characters.update') }}" method="post">
+        <form action="{{ route('characters.update',$character) }}" method="post">
             @csrf
             @method('PUT')
 
@@ -25,7 +25,7 @@
                   class="form-control @error('name') is-invalid  @enderror"
                   id="name"
                   name="name"
-                  value="{{ old('name')}}">
+                  value="{{ old('name', $character->name)}}">
                 @error('name')
                     <span class="text-danger">{{ $message }}</span>
                 @enderror
@@ -36,7 +36,7 @@
                   class="form-control @error('background') is-invalid  @enderror"
                   id="background"
                   rows="3"
-                  name="background">{{ old('background')}}</textarea>
+                  name="background">{{ old('background', $character->background)}}</textarea>
                 @error('background')
                     <span class="text-danger">{{ $message }}</span>
                 @enderror
@@ -50,7 +50,7 @@
                           class="form-control @error('height') is-invalid  @enderror"
                           id="height"
                           name="height"
-                          value="{{ old('height')}}">
+                          value="{{ old('height', $character->height)}}">
                         @error('height')
                             <span class="text-danger">{{ $message }}</span>
                         @enderror
@@ -64,7 +64,7 @@
                           class="form-control @error('weight') is-invalid  @enderror"
                           id="weight"
                           name="weight"
-                          value="{{ old('weight')}}">
+                          value="{{ old('weight', $character->weight)}}">
                         @error('weight')
                             <span class="text-danger">{{ $message }}</span>
                         @enderror
@@ -77,7 +77,7 @@
                           class="form-control @error('armour_class') is-invalid  @enderror"
                           name="armour_class"
                           id="armour_class"
-                          value="{{ old('armour_class')}}">
+                          value="{{ old('armour_class', $character->armour_class)}}">
                             <option value="Leggera">Leggera</option>
                             <option value="Media">Media</option>
                             <option value="Pesante">Pesante</option>
@@ -96,7 +96,7 @@
                   class="form-control @error('image') is-invalid  @enderror"
                   id="image"
                   name="image"
-                  value="{{ old('image')}}">
+                  value="{{ old('image', $character->image)}}">
                 @error('image')
                     <span class="text-danger">{{ $message }}</span>
                 @enderror
@@ -111,7 +111,7 @@
                           class="form-control @error('FOR') is-invalid  @enderror"
                           id="FOR"
                           name="FOR"
-                          value="{{ old('FOR')}}">
+                          value="{{ old('FOR', $character->FOR)}}">
                         @error('FOR')
                             <span class="text-danger">{{ $message }}</span>
                         @enderror
@@ -125,7 +125,7 @@
                           class="form-control @error('DES') is-invalid  @enderror"
                           id="DES"
                           name="DES"
-                          value="{{ old('DES')}}">
+                          value="{{ old('DES', $character->DES)}}">
                         @error('DES')
                             <span class="text-danger">{{ $message }}</span>
                         @enderror
@@ -139,7 +139,7 @@
                           class="form-control @error('COS') is-invalid  @enderror"
                           id="COS"
                           name="COS"
-                          value="{{ old('COS')}}">
+                          value="{{ old('COS', $character->COS)}}">
                         @error('COS')
                             <span class="text-danger">{{ $message }}</span>
                         @enderror
@@ -153,7 +153,7 @@
                           class="form-control @error('INT') is-invalid  @enderror"
                           id="INT"
                           name="INT"
-                          value="{{ old('INT')}}">
+                          value="{{ old('INT', $character->INT)}}">
                         @error('INT')
                             <span class="text-danger">{{ $message }}</span>
                         @enderror
@@ -167,7 +167,7 @@
                           class="form-control @error('SAG') is-invalid  @enderror"
                           id="SAG"
                           name="SAG"
-                          value="{{ old('SAG')}}">
+                          value="{{ old('SAG', $character->SAG)}}">
                         @error('SAG')
                             <span class="text-danger">{{ $message }}</span>
                         @enderror
@@ -181,7 +181,7 @@
                           class="form-control @error('CAR') is-invalid  @enderror"
                           id="CAR"
                           name="CAR"
-                          value="{{ old('CAR')}}">
+                          value="{{ old('CAR', $character->CAR)}}">
                         @error('CAR')
                             <span class="text-danger">{{ $message }}</span>
                         @enderror
@@ -190,8 +190,7 @@
             </div>
 
 
-            <button class="btn btn-primary" type="submit">Crea</button>
-            <button class="btn btn-danger" type="reset">Reset</button>
+            <button class="btn btn-primary" type="submit">Edit</button>
 
         </form>
     </div>
