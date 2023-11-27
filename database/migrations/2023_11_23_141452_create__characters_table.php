@@ -20,7 +20,7 @@ return new class extends Migration
             $table->unsignedSmallInteger('weight');
             $table->text('background');
             $table->string('image');
-            $table->string('armour_class',50);
+            $table->string('armour_class',10);
             $table->unsignedTinyInteger('FOR')->default(0);
             $table->unsignedTinyInteger('DES')->default(0);
             $table->unsignedTinyInteger('COS')->default(0);

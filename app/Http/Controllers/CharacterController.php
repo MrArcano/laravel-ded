@@ -36,7 +36,12 @@ class CharacterController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $new_character = new Character();
+        $form_data = $request->all();
+        $new_character->fill( $form_data);
+        $new_character->save();
+
+        return redirect()->route('characters.show',$new_character);
     }
 
     /**

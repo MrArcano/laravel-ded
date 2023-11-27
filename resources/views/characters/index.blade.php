@@ -34,7 +34,10 @@
                         <td>{{ $character->INT }}</td>
                         <td>{{ $character->SAG }}</td>
                         <td>{{ $character->CAR }}</td>
-                        <td><a class="btn btn-success" href="{{ route('characters.show', $character) }}"><i class="fa-solid fa-eye"></i></a></td>
+                        <td>
+                            <a class="btn btn-success" href="{{ route('characters.show', $character) }}"><i class="fa-solid fa-eye"></i></a>
+                            <a class="btn btn-warning" href="{{ route('characters.edit', $character) }}"><i class="fa-solid fa-pencil"></i></a>
+                        </td>
                     </tr>
                 @endforeach
 

@@ -27,7 +27,7 @@ class CharacterTableSeeder extends Seeder
             $new_character->weight = $faker->numberBetween(1, 1000);
             $new_character->background = $faker->text(200);
             $new_character->image = $faker->imageUrl(360, 360, 'character', true, 'fantasy', true, 'jpg');
-            $new_character->armour_class = $faker->randomElement(['a', 'b', 'c', 'd', 'e']);
+            $new_character->armour_class = $faker->randomElement(['Leggera', 'Media', 'Pesante']);
             $new_character->FOR = $faker->numberBetween(1, 10);
             $new_character->DES = $faker->numberBetween(1, 10);
             $new_character->COS = $faker->numberBetween(1, 10);
