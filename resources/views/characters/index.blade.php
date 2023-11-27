@@ -17,6 +17,7 @@
                     <th scope="col">INT</th>
                     <th scope="col">SAG</th>
                     <th scope="col">CAR</th>
+                    <th scope="col">Action</th>
                 </tr>
             </thead>
             <tbody>
@@ -33,6 +34,7 @@
                         <td>{{ $character->INT }}</td>
                         <td>{{ $character->SAG }}</td>
                         <td>{{ $character->CAR }}</td>
+                        <td><a class="btn btn-success" href="{{ route('characters.show', $character) }}"><i class="fa-solid fa-eye"></i></a></td>
                     </tr>
                 @endforeach
 
