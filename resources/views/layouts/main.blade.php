@@ -11,6 +11,8 @@
 </head>
 <body class="text-bg-dark">
 
+    @include('partials.header')
+
     <main class="container">
         @yield('content')
     </main>
