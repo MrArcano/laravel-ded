@@ -4,10 +4,10 @@
             <a class="nav-link" href="{{ route('home') }}">Home</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="{{ route('characters.index') }}">Lista Personaggi</a>
+            <a class="nav-link" href="{{ route('admin.characters.index') }}">Lista Personaggi</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="{{ route('characters.create') }}">Crea nuovo personaggio</a>
+            <a class="nav-link" href="{{ route('admin.characters.create') }}">Crea nuovo personaggio</a>
         </li>
     </ul>
 </header>

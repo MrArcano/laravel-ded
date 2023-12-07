@@ -10,6 +10,6 @@ class PageController extends Controller
 {
     public function index(){
         $characters = Character::all();
-        return view("home", compact("characters"));
+        return view("guest.home", compact("characters"));
     }
 }
