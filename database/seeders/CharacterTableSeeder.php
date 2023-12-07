@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use App\Models\Character;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use App\Functions\Helper;
 // use Faker\Generator as Faker;
 use Faker\Factory as Faker;
 
@@ -23,6 +24,7 @@ class CharacterTableSeeder extends Seeder
             $new_character = new Character();
 
             $new_character->name = $faker->name();
+            $new_character->slug = Helper::generateSlug($new_character->name, Character::class);
             $new_character->height = $faker->numberBetween(1, 1000);
             $new_character->weight = $faker->numberBetween(1, 1000);
             $new_character->background = $faker->text(200);

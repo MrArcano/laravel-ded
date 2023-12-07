@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\CharacterRequest;
 use App\Models\Character;
 use Illuminate\Http\Request;
+// importo l'Helper per lo slug
+use App\Functions\Helper;
 
 class CharacterController extends Controller
 {
@@ -40,7 +42,11 @@ class CharacterController extends Controller
     {
         $new_character = new Character();
         $form_data = $request->all();
-        $new_character->fill( $form_data);
+        dump($form_data);
+        // aggiungo dentro l'array $form_data anche lo slug, generato tramite l'Helper::generateSlug()
+        $form_data['slug'] = Helper::generateSlug($form_data['name'], Character::class);
+        dd($form_data);
+        $new_character->fill($form_data);
         $new_character->save();
 
         return redirect()->route('admin.characters.show',$new_character);
@@ -78,7 +84,9 @@ class CharacterController extends Controller
     public function update(CharacterRequest $request,Character $character)
     {
         $form_data = $request->all();
+        $form_data['slug'] = Helper::generateSlug($form_data['name'], Character::class);
         $character->update($form_data);
+
 
         return redirect()->route('admin.characters.show',$character);
     }
@@ -89,8 +97,9 @@ class CharacterController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Character $character)
     {
-        //
+        $character->delete();
+        return redirect()->route('admin.characters.index')->with('success', 'Il personaggio è stato eliminato correttamente');
     }
 }

@@ -35,8 +35,14 @@
                         <td>{{ $character->SAG }}</td>
                         <td>{{ $character->CAR }}</td>
                         <td>
-                            <a class="btn btn-success" href="{{ route('admin.characters.show', $character) }}"><i class="fa-solid fa-eye"></i></a>
-                            <a class="btn btn-warning" href="{{ route('admin.characters.edit', $character) }}"><i class="fa-solid fa-pencil"></i></a>
+                            <a class="btn btn-success" href="{{ route('admin.characters.show', $character) }}"><i
+                                    class="fa-solid fa-eye"></i></a>
+                            <a class="btn btn-warning" href="{{ route('admin.characters.edit', $character) }}"><i
+                                    class="fa-solid fa-pencil"></i></a>
+                            @include('admin.partials.form-delete', [
+                                'route' => route('admin.characters.destroy', $character),
+                                'message' => 'Sei sicuro di voler eliminare questo personaggio?',
+                            ])
                         </td>
                     </tr>
                 @endforeach

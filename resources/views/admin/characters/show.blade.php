@@ -3,7 +3,14 @@
 @section('content')
     <h1 class="text-center">Show</h1>
     <div class="text-end">
-        <a class="btn btn-warning " href="{{ route('characters.edit', $character) }}"><i class="fa-solid fa-pencil"></i></a>
+        <a class="btn btn-warning " href="{{ route('admin.characters.edit', $character) }}"><i
+                class="fa-solid fa-pencil"></i></a>
+        <td>
+            @include('admin.partials.form-delete', [
+                'route' => route('admin.characters.destroy', $character),
+                'message' => 'Sei sicuro di voler eliminare questo personaggio?',
+            ])
+        </td>
     </div>
     <div class="show my-3">
 
@@ -19,7 +26,8 @@
             <div class="col">
                 <div class="p-3">
                     <p><strong>Descrizione: </strong>{{ $character->background }}</p>
-                    <p><strong>Altezza: </strong>{{ $character->height }} | <strong>Peso: </strong>{{ $character->weight }} | <strong>Classe Armor: </strong>{{ $character->armour_class }}</p>
+                    <p><strong>Altezza: </strong>{{ $character->height }} | <strong>Peso: </strong>{{ $character->weight }}
+                        | <strong>Classe Armor: </strong>{{ $character->armour_class }}</p>
                 </div>
                 <div class="row">
                     <div class="col-6 col-md-4 col-lg-2 my-3">
