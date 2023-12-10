@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\CharacterController;
+use App\Http\Controllers\Admin\CSVController;
 use App\Http\Controllers\Guest\PageController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
@@ -27,9 +28,13 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::middleware('auth')->prefix('admin')->name('admin.')->group(function () {
+Route::middleware(['auth','verified'])->prefix('admin')->name('admin.')->group(function () {
     Route::resource('characters', CharacterController::class);
     Route::get('/', [DashboardController::class, 'index'])->name('home');
+
+    // CSVController
+    Route::post('import-csv',[CSVController::class,'importCsv'])->name('import-csv');
+    Route::get('export-csv',[CSVController::class,'exportCsv'])->name('export-csv');
 });
 
 

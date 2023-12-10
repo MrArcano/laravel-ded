@@ -2,8 +2,20 @@
 
 @section('content')
     <div class="index">
-        <h1>Index Character</h1>
-        <table class="table table-dark mt-5">
+
+        <h1 class="d-inline-block my-4">Index Character</h1>
+        {{-- Export link --}}
+        <a class="badge btn btn-secondary ms-2" href="{{ route('admin.export-csv') }}">Export CSV</a>
+
+        {{-- Import form --}}
+        <form class="form-group" action="{{ route('admin.import-csv') }}" method="POST" enctype="multipart/form-data">
+            @csrf
+            <div class="input-group mb-3">
+                <input class=" form-control" type="file" name="csv_file" accept=".csv">
+                <button class="btn btn-secondary" type="submit">Import CSV</button>
+            </div>
+        </form>
+        <table class="table table-dark mt-4">
             <thead>
                 <tr>
                     <th scope="col">#</th>

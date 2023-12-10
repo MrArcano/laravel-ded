@@ -25,17 +25,17 @@ class CharacterTableSeeder extends Seeder
 
             $new_character->name = $faker->name();
             $new_character->slug = Helper::generateSlug($new_character->name, Character::class);
-            $new_character->height = $faker->numberBetween(1, 1000);
-            $new_character->weight = $faker->numberBetween(1, 1000);
+            $new_character->height = $faker->numberBetween(1, 250);
+            $new_character->weight = $faker->numberBetween(1, 150);
             $new_character->background = $faker->text(200);
             $new_character->image = $faker->imageUrl(360, 360, 'character', true, 'fantasy', true, 'jpg');
             $new_character->armour_class = $faker->randomElement(['Leggera', 'Media', 'Pesante']);
-            $new_character->FOR = $faker->numberBetween(1, 10);
-            $new_character->DES = $faker->numberBetween(1, 10);
-            $new_character->COS = $faker->numberBetween(1, 10);
-            $new_character->INT = $faker->numberBetween(1, 10);
-            $new_character->SAG = $faker->numberBetween(1, 10);
-            $new_character->CAR = $faker->numberBetween(1, 10);
+            $new_character->FOR = $faker->numberBetween(5, 20);
+            $new_character->DES = $faker->numberBetween(5, 20);
+            $new_character->COS = $faker->numberBetween(5, 20);
+            $new_character->INT = $faker->numberBetween(5, 20);
+            $new_character->SAG = $faker->numberBetween(5, 20);
+            $new_character->CAR = $faker->numberBetween(5, 20);
 
             $new_character->save();
         }
