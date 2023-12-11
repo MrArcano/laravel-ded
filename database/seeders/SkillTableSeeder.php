@@ -29,7 +29,8 @@ class SkillTableSeeder extends Seeder
             // aggiungo lo slug al mio array
             $record['slug'] = Helper::generateSlug($record['name'], Skill::class);
 
-            $record['trait'] = $faker->randomElement(['FOR', 'DES', 'COS', 'INT', 'SAG', 'CAR']);
+            // visto che è un dato inserito nel file skill.csv non serve più aggiungerlo con il faker
+            // $record['trait'] = $faker->randomElement(['FOR', 'DES', 'COS', 'INT', 'SAG', 'CAR']);
 
             // creo il nuovo progetto con i dati del record
             Skill::create($record);

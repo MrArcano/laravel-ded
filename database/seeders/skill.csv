@@ -1,20 +1,27 @@
-name,description
-Furtività,"Capacità di muoversi senza essere rilevato e nascondersi dagli altri."
-Acrobazia,"Capacità di eseguire manovre acrobatiche, come salti e voli."
-Arcanismo,"Conoscenza dei segreti e delle funzioni della magia."
-Atletica,"Capacità di compiere azioni fisiche intense, come arrampicarsi e nuotare."
-Inganno,"Abilità nel mentire, fingersi qualcun altro o manipolare gli altri."
-Storia,"Conoscenza dei fatti, eventi e dettagli del passato."
-Intimidazione,"Capacità di spaventare o costringere gli altri attraverso la forza o la minaccia."
-Investigazione,"acume nell'osservazione e nell'analisi di indizi e situazioni."
-Intuizione,"Capacità di percepire le intenzioni e le motivazioni degli altri."
-Medicina,"Capacità di curare le ferite, diagnosticare malattie e guarire."
-Natura,"Conoscenza degli animali, delle piante e dell'ambiente naturale."
-Persuasione,"Abilità nel convincere e negoziare con gli altri."
-Religione,"Conoscenza delle divinità, degli insegnamenti religiosi e dei rituali."
-Ricerca,"Abilità nel trovare trappole nascoste, oggetti segreti o ingressi segreti."
-Sopravvivenza,"Abilità nel cacciare, trovare acqua e cibo e orientarsi in ambienti ostili."
-Perceptione,"Capacità di notare dettagli e avvistare potenziali pericoli."
-Prestidigitazione,"Abilità nel creare effetti speciali e trucchi magici di basso livello."
-Ladro,"Abilità nel disarmare trappole, aprire serrature e sottrarsi alla sorveglianza."
-Acrobatismo,"Abilità nel compiere acrobazie, come saltare grandi distanze o bilanciarsi sui trapezi."
+name,description,trait
+Acrobazia,"Capacità di eseguire manovre acrobatiche, come salti e voli.",DES
+Acrobatismo,"Abilità nel compiere acrobazie, come saltare grandi distanze o bilanciarsi sui trapezi.",DES
+Animal Empathy,"Comunicazione e comprensione degli animali",SAG
+Arcanismo,"Conoscenza dei segreti e delle funzioni della magia.",INT
+Atletica,"Capacità di compiere azioni fisiche intense, come arrampicarsi e nuotare.",FOR
+Diplomazia,"Capacità di convincere gli altri con la parola",CAR
+Forza Bruta,"Colpi devastanti che sfruttano la forza fisica",FOR
+Furtività,"Capacità di muoversi senza essere rilevato e nascondersi dagli altri.",DES
+Incantesimo di Cura,"Guarigione magica per curare le ferite",SAG
+Inganno,"Abilità nel mentire, fingersi qualcun altro o manipolare gli altri.",CAR
+Intimidazione,"Capacità di spaventare o costringere gli altri attraverso la forza o la minaccia.",CAR
+Intuizione,"Capacità di percepire le intenzioni e le motivazioni degli altri.",SAG
+Investigazione,"Acume nell'osservazione e nell'analisi di indizi e situazioni.",INT
+Ladro,"Abilità nel disarmare trappole, aprire serrature e sottrarsi alla sorveglianza.",DES
+Medicina,"Capacità di curare le ferite, diagnosticare malattie e guarire.",INT
+Natura,"Conoscenza degli animali, delle piante e dell'ambiente naturale.",INT
+Percezione,"Capacità di notare dettagli e avvistare potenziali pericoli.",SAG
+Persuasione,"Abilità nel convincere e negoziare con gli altri.",CAR
+Prestidigitazione,"Abilità nel creare effetti speciali e trucchi magici di basso livello.",DES
+Precisione con l'Arco,"Mira accurata con arcate e balestre",DES
+Religione,"Conoscenza delle divinità, degli insegnamenti religiosi e dei rituali.",SAG
+Ricerca,"Abilità nel trovare trappole nascoste, oggetti segreti o ingressi segreti.",INT
+Sleight of Hand,"Abilità di destrezza nelle mani per furti o prestigiatori",DES
+Sopravvivenza,"Abilità nel cacciare, trovare acqua e cibo e orientarsi in ambienti ostili.",SAG
+Storia,"Conoscenza dei fatti, eventi e dettagli del passato.",INT
+Stregone,"Potere magico derivante da un patto con un essere superiore",CAR
