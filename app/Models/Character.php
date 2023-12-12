@@ -9,6 +9,10 @@ class Character extends Model
 {
     use HasFactory;
 
+    public function skills() {
+        return $this->belongsToMany(Skill::class);
+    }
+
     public function race() {
         return $this->belongsTo(Race::class);
     }
