@@ -15,7 +15,7 @@ class SkillTableSeeder extends Seeder
      */
     public function run(Faker $faker): void
     {
-        $filePath = __DIR__ . '\skill.csv';
+        $filePath = __DIR__ . '/skill.csv';
 
         $data_csv = fopen($filePath, "r");
 

@@ -9,6 +9,10 @@ class Character extends Model
 {
     use HasFactory;
 
+    public function race() {
+        return $this->belongsTo(Race::class);
+    }
+
     protected $fillable = [
         'name',
         'slug',

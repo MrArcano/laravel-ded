@@ -14,7 +14,7 @@ class CharacterCSVTableSeeder extends Seeder
      */
     public function run(): void
     {
-        $filePath = __DIR__ . '\characters.csv';
+        $filePath = __DIR__ . '/characters.csv';
 
         $data_csv = fopen($filePath, "r");
 

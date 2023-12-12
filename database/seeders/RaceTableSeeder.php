@@ -15,7 +15,7 @@ class RaceTableSeeder extends Seeder
      */
     public function run(Faker $faker): void
     {
-        $filePath = __DIR__ . '\race.csv';
+        $filePath = __DIR__ . '/race.csv';
 
         $data_csv = fopen($filePath, "r");
 

@@ -42,10 +42,8 @@ class CharacterController extends Controller
     {
         $new_character = new Character();
         $form_data = $request->all();
-        dump($form_data);
         // aggiungo dentro l'array $form_data anche lo slug, generato tramite l'Helper::generateSlug()
         $form_data['slug'] = Helper::generateSlug($form_data['name'], Character::class);
-        dd($form_data);
         $new_character->fill($form_data);
         $new_character->save();
 
