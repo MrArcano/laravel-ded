@@ -14,7 +14,7 @@ class SkillController extends Controller
      */
     public function index()
     {
-        $skills = Skill::all() ;
+        $skills = Skill::all();
         return view('admin.skills.index', compact("skills"));
     }
 
@@ -38,7 +38,7 @@ class SkillController extends Controller
             'trait' => 'required',
         ]);
 
-        $form_data=$request->all();
+        $form_data = $request->all();
         $form_data['slug'] = Helper::generateSlug($form_data['name'], Skill::class);
 
 
@@ -65,19 +65,29 @@ class SkillController extends Controller
     public function edit(Skill $skill)
     {
 
-        return view('admin.skills.edit',compact('skill'));
+        return view('admin.skills.edit', compact('skill'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Skill $skill)
     {
         $request->validate([
             'name' => 'required',
             'description' => 'required',
             'trait' => 'required',
         ]);
+        $form_data = $request->all();
+        if ($form_data['name'] != $skill->name) {
+            $form_data['slug'] = Helper::generateSlug($form_data['name'], Skill::class);
+        }
+        else {
+            $form_data['slug'] = $skill->slug;
+        }
+        $skill->update($form_data);
+
+        return redirect()->route('admin.skills.index');
     }
 
     /**

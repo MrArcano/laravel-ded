@@ -31,6 +31,18 @@ class RaceController extends Controller
      */
     public function store(Request $request)
     {
+
+        $request->validate([
+            'name' => 'required',
+            'description' => 'required',
+            'Mod_FOR' => 'required',
+            'Mod_DES' => 'required',
+            'Mod_COS' => 'required',
+            'Mod_INT' => 'required',
+            'Mod_SAG' => 'required',
+            'Mod_CAR' => 'required'
+        ]);
+
         $new_race = new Race();
         $new_race->fill($request->all());
         $new_race->slug = Helper::generateSlug($request->name, Race::class);
@@ -62,11 +74,22 @@ class RaceController extends Controller
      */
     public function update(Request $request, Race $race)
     {
+
+        $request->validate([
+            'name' => 'required',
+            'description' => 'required',
+            'Mod_FOR' => 'required',
+            'Mod_DES' => 'required',
+            'Mod_COS' => 'required',
+            'Mod_INT' => 'required',
+            'Mod_SAG' => 'required',
+            'Mod_CAR' => 'required'
+        ]);
+
         $form_data = $request->all();
         if ($form_data['name'] != $race->name) {
             $form_data['slug'] = Helper::generateSlug($form_data['name'], Race::class);
-        }
-        else {
+        } else {
             $form_data['slug'] = $race->slug;
         }
         $race->update($form_data);
