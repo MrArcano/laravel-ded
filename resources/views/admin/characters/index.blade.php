@@ -3,18 +3,22 @@
 @section('content')
     <div class="index">
 
-        <h1 class="d-inline-block my-4">Index Character</h1>
+        <div class="d-flex align-items-center gap-3">
+            <h1 class="d-inline-block my-4">Lista Personaggi</h1>
+            <a class="btn btn-success" href="{{ route('admin.characters.create') }}">Add <i class="fa-solid fa-circle-plus"></i></a>
+        </div>
         {{-- Export link --}}
-        <a class="badge btn btn-secondary ms-2" href="{{ route('admin.export-csv') }}">Export CSV</a>
+        {{-- <a class="badge btn btn-secondary ms-2" href="{{ route('admin.export-csv') }}">Export CSV</a> --}}
 
         {{-- Import form --}}
-        <form class="form-group" action="{{ route('admin.import-csv') }}" method="POST" enctype="multipart/form-data">
+        {{-- <form class="form-group" action="{{ route('admin.import-csv') }}" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="input-group mb-3">
                 <input class=" form-control" type="file" name="csv_file" accept=".csv">
                 <button class="btn btn-secondary" type="submit">Import CSV</button>
             </div>
-        </form>
+        </form> --}}
+
         <table class="table table-dark mt-4">
             <thead>
                 <tr>
@@ -24,7 +28,7 @@
                     <th scope="col">Abilità</th>
                     <th scope="col">Altezza</th>
                     <th scope="col">Peso</th>
-                    <th scope="col">Classe armatura</th>
+                    <th scope="col" class="text-nowrap">Classe armatura</th>
                     <th scope="col">FOR</th>
                     <th scope="col">DES</th>
                     <th scope="col">COS</th>
@@ -39,12 +43,14 @@
                     <tr>
                         <td>{{ $character->id }}</td>
                         <td>{{ $character->name }}</td>
-                        <td><a href="#">{{ $character->race->name }}</a></td>
+                        <td>
+                            <a class="badge text-bg-info text-decoration-none" href="#">{{ $character->race->name }}</a>
+                        </td>
                         <td>
                             @forelse ($character->skills as $skill)
-                                {{ $skill->name }}
+                                <a class="badge text-bg-info text-decoration-none" href="#">{{ $skill->name }}</a>
                             @empty
-                                -
+                                <a class="badge text-bg-info text-decoration-none" href="#">No Skill</a>
                             @endforelse
 
                         </td>
@@ -57,7 +63,7 @@
                         <td>{{ $character->INT }}</td>
                         <td>{{ $character->SAG }}</td>
                         <td>{{ $character->CAR }}</td>
-                        <td>
+                        <td class="text-nowrap">
                             <a class="btn btn-success" href="{{ route('admin.characters.show', $character) }}"><i
                                     class="fa-solid fa-eye"></i></a>
                             <a class="btn btn-warning" href="{{ route('admin.characters.edit', $character) }}"><i

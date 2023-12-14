@@ -3,8 +3,10 @@
 @section('content')
     <div class="index">
 
-        <h1 class="d-inline-block my-4">Index Race</h1>
-        <a class="btn btn-success" href="{{ route('admin.races.create') }}"><i class="fa-solid fa-circle-plus"></i></a>
+        <div class="d-flex align-items-center gap-3">
+            <h1 class="d-inline-block my-4">Lista Razze</h1>
+            <a class="btn btn-success" href="{{ route('admin.races.create') }}">Add <i class="fa-solid fa-circle-plus"></i></a>
+        </div>
 
         <table class="table table-dark mt-4">
             <thead>
@@ -33,7 +35,7 @@
                         <td>{{ $race->Mod_INT }}</td>
                         <td>{{ $race->Mod_SAG }}</td>
                         <td>{{ $race->Mod_CAR }}</td>
-                        <td>
+                        <td class="text-nowrap">
                             <a class="btn btn-warning" href="{{ route('admin.races.edit', $race) }}"><i
                                     class="fa-solid fa-pencil"></i></a>
                             @include('admin.partials.form-delete', [
