@@ -28,14 +28,15 @@ class CharacterRequest extends FormRequest
             "height"=> "required|numeric|min:1|max:1000",
             "weight"=> "required|numeric|min:1|max:1000",
             "background"=> "required",
+            "race_id"=> "required|numeric|min:1",
             "image"=> "required|max:255",
-            "armour_class"=> "required|max:10",
-            "FOR"=> "required|numeric|min:1|max:10",
-            "DES"=> "required|numeric|min:1|max:10",
-            "COS"=> "required|numeric|min:1|max:10",
-            "INT"=> "required|numeric|min:1|max:10",
-            "SAG"=> "required|numeric|min:1|max:10",
-            "CAR"=> "required|numeric|min:1|max:10",
+            "armour_class"=> "required",
+            "FOR"=> "required|numeric|min:1|max:20",
+            "DES"=> "required|numeric|min:1|max:20",
+            "COS"=> "required|numeric|min:1|max:20",
+            "INT"=> "required|numeric|min:1|max:20",
+            "SAG"=> "required|numeric|min:1|max:20",
+            "CAR"=> "required|numeric|min:1|max:20",
         ];
     }
     public function messages(){

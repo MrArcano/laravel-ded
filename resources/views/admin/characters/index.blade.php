@@ -20,6 +20,8 @@
                 <tr>
                     <th scope="col">#</th>
                     <th scope="col">Nome</th>
+                    <th scope="col">Razza</th>
+                    <th scope="col">Abilità</th>
                     <th scope="col">Altezza</th>
                     <th scope="col">Peso</th>
                     <th scope="col">Classe armatura</th>
@@ -37,6 +39,15 @@
                     <tr>
                         <td>{{ $character->id }}</td>
                         <td>{{ $character->name }}</td>
+                        <td><a href="#">{{ $character->race->name }}</a></td>
+                        <td>
+                            @forelse ($character->skills as $skill)
+                                {{ $skill->name }}
+                            @empty
+                                -
+                            @endforelse
+
+                        </td>
                         <td>{{ $character->height }}</td>
                         <td>{{ $character->weight }}</td>
                         <td>{{ $character->armour_class }}</td>

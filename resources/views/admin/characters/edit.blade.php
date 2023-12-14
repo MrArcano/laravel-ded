@@ -35,7 +35,7 @@
                 @enderror
             </div>
             <div class="row">
-                <div class="col-4">
+                <div class="col-3">
                     <div class="mb-3">
                         <label for="height" class="form-label">Altezza: </label>
                         <input type="number" class="form-control @error('height') is-invalid  @enderror" id="height"
@@ -45,7 +45,7 @@
                         @enderror
                     </div>
                 </div>
-                <div class="col-4">
+                <div class="col-3">
                     <div class="mb-3">
                         <label for="weight" class="form-label">Peso: </label>
                         <input type="number" class="form-control @error('weight') is-invalid  @enderror" id="weight"
@@ -55,7 +55,7 @@
                         @enderror
                     </div>
                 </div>
-                <div class="col-4">
+                <div class="col-3">
                     <div class="mb-3">
                         <label for="armour_class" class="form-label">Classe armatura: </label>
                         <select class="form-control @error('armour_class') is-invalid  @enderror" name="armour_class"
@@ -67,6 +67,46 @@
                         @error('armour_class')
                             <span class="text-danger">{{ $message }}</span>
                         @enderror
+                    </div>
+                </div>
+                <div class="col-3">
+                    <div class="mb-3">
+                        <label for="race_id" class="form-label">Razza: </label>
+                        <select class="form-control @error('race_id') is-invalid  @enderror" name="race_id" id="race_id"
+                            value="{{ old('race_id') }}">
+                            <option value="">Seleziona razza</option>
+                            @foreach ($races as $race)
+                                <option {{ $character->race_id === $race->id ? 'selected' : '' }}
+                                    value="{{ $race->id }}">
+                                    {{ $race->name }}</option>
+                            @endforeach
+
+                        </select>
+                        @error('race_id')
+                            <span class="text-danger">{{ $message }}</span>
+                        @enderror
+                    </div>
+                </div>
+
+
+                <div class="row">
+                    <div class="col">
+                        <div class="mb-3">
+                            <div>
+                                @foreach ($skills as $skill)
+                                    <input
+                                        {{ (in_array($skill->id, old('skills', [])) && $errors->any()) ||
+                                        ($character->skills->contains($skill->id) && !$errors->any())
+                                            ? 'checked'
+                                            : '' }}
+                                        type="checkbox" name="skills[]" value="{{ $skill->id }}" class="btn-check"
+                                        id="btncheck-{{ $skill->id }}">
+                                    <label class="badge btn btn-outline-primary"
+                                        for="btncheck-{{ $skill->id }}">{{ $skill->name }}</label>
+                                @endforeach
+
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

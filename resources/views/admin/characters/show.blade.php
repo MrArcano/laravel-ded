@@ -27,7 +27,8 @@
                 <div class="p-3">
                     <p><strong>Descrizione: </strong>{{ $character->background }}</p>
                     <p><strong>Altezza: </strong>{{ $character->height }} | <strong>Peso: </strong>{{ $character->weight }}
-                        | <strong>Classe Armor: </strong>{{ $character->armour_class }}</p>
+                        | <strong>Classe Armor: </strong>{{ $character->armour_class }} | <strong>Razza:
+                        </strong>{{ $character->race->name }}</p>
                 </div>
                 <div class="row">
                     <div class="col-6 col-md-4 col-lg-2 my-3">

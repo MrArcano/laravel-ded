@@ -21,6 +21,7 @@ class Character extends Model
         'name',
         'slug',
         'height',
+        'race_id',
         'weight',
         'background',
         'image',

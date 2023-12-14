@@ -22,64 +22,46 @@
 
             <div class="mb-3">
                 <label for="name" class="form-label">Name: </label>
-                <input
-                  type="text"
-                  class="form-control @error('name') is-invalid  @enderror"
-                  id="name"
-                  name="name"
-                  value="{{ old('name')}}">
+                <input type="text" class="form-control @error('name') is-invalid  @enderror" id="name" name="name"
+                    value="{{ old('name') }}">
                 @error('name')
                     <span class="text-danger">{{ $message }}</span>
                 @enderror
             </div>
             <div class="mb-3">
                 <label for="background" class="form-label">Background: </label>
-                <textarea
-                  class="form-control @error('background') is-invalid  @enderror"
-                  id="background"
-                  rows="3"
-                  name="background">{{ old('background')}}</textarea>
+                <textarea class="form-control @error('background') is-invalid  @enderror" id="background" rows="3"
+                    name="background">{{ old('background') }}</textarea>
                 @error('background')
                     <span class="text-danger">{{ $message }}</span>
                 @enderror
             </div>
             <div class="row">
-                <div class="col-4">
+                <div class="col-3">
                     <div class="mb-3">
                         <label for="height" class="form-label">Altezza: </label>
-                        <input
-                          type="number"
-                          class="form-control @error('height') is-invalid  @enderror"
-                          id="height"
-                          name="height"
-                          value="{{ old('height')}}">
+                        <input type="number" class="form-control @error('height') is-invalid  @enderror" id="height"
+                            name="height" value="{{ old('height') }}">
                         @error('height')
                             <span class="text-danger">{{ $message }}</span>
                         @enderror
                     </div>
                 </div>
-                <div class="col-4">
+                <div class="col-3">
                     <div class="mb-3">
                         <label for="weight" class="form-label">Peso: </label>
-                        <input
-                          type="number"
-                          class="form-control @error('weight') is-invalid  @enderror"
-                          id="weight"
-                          name="weight"
-                          value="{{ old('weight')}}">
+                        <input type="number" class="form-control @error('weight') is-invalid  @enderror" id="weight"
+                            name="weight" value="{{ old('weight') }}">
                         @error('weight')
                             <span class="text-danger">{{ $message }}</span>
                         @enderror
                     </div>
                 </div>
-                <div class="col-4">
+                <div class="col-3">
                     <div class="mb-3">
-                        <label for="armour_class" class="form-label">Classe armatura:  </label>
-                        <select
-                          class="form-control @error('armour_class') is-invalid  @enderror"
-                          name="armour_class"
-                          id="armour_class"
-                          value="{{ old('armour_class')}}">
+                        <label for="armour_class" class="form-label">Classe armatura: </label>
+                        <select class="form-control @error('armour_class') is-invalid  @enderror" name="armour_class"
+                            id="armour_class" value="{{ old('armour_class') }}">
                             <option value="Leggera">Leggera</option>
                             <option value="Media">Media</option>
                             <option value="Pesante">Pesante</option>
@@ -89,16 +71,46 @@
                         @enderror
                     </div>
                 </div>
+                <div class="col-3">
+                    <div class="mb-3">
+                        <label for="race_id" class="form-label">Razza: </label>
+                        <select class="form-control @error('race_id') is-invalid  @enderror" name="race_id" id="race_id"
+                            value="{{ old('race_id') }}">
+                            <option value="">Seleziona razza</option>
+                            @foreach ($races as $race)
+                                <option value="{{ $race->id }}">{{ $race->name }}</option>
+                            @endforeach
+
+                        </select>
+                        @error('race_id')
+                            <span class="text-danger">{{ $message }}</span>
+                        @enderror
+                    </div>
+                </div>
             </div>
+
+            <div class="row">
+                <div class="col">
+                    <div class="mb-3">
+                        <div>
+                            @foreach ($skills as $skill)
+                                <input {{ in_array($skill->id, old('skills', [])) ? 'checked' : '' }} type="checkbox"
+                                    name="skills[]" value="{{ $skill->id }}" class="btn-check"
+                                    id="btncheck-{{ $skill->id }}">
+                                <label class="badge btn btn-outline-primary"
+                                    for="btncheck-{{ $skill->id }}">{{ $skill->name }}</label>
+                            @endforeach
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
 
             <div class="mb-3">
                 <label for="image" class="form-label">Image: </label>
-                <input
-                  type="text"
-                  class="form-control @error('image') is-invalid  @enderror"
-                  id="image"
-                  name="image"
-                  value="{{ old('image')}}">
+                <input type="text" class="form-control @error('image') is-invalid  @enderror" id="image"
+                    name="image" value="{{ old('image') }}">
                 @error('image')
                     <span class="text-danger">{{ $message }}</span>
                 @enderror
@@ -108,12 +120,8 @@
                 <div class="col-2">
                     <div class="mb-3">
                         <label for="FOR" class="form-label">FOR: </label>
-                        <input
-                          type="number"
-                          class="form-control @error('FOR') is-invalid  @enderror"
-                          id="FOR"
-                          name="FOR"
-                          value="{{ old('FOR')}}">
+                        <input type="number" class="form-control @error('FOR') is-invalid  @enderror" id="FOR"
+                            name="FOR" value="{{ old('FOR') }}">
                         @error('FOR')
                             <span class="text-danger">{{ $message }}</span>
                         @enderror
@@ -122,12 +130,8 @@
                 <div class="col-2">
                     <div class="mb-3">
                         <label for="DES" class="form-label">DES: </label>
-                        <input
-                          type="number"
-                          class="form-control @error('DES') is-invalid  @enderror"
-                          id="DES"
-                          name="DES"
-                          value="{{ old('DES')}}">
+                        <input type="number" class="form-control @error('DES') is-invalid  @enderror" id="DES"
+                            name="DES" value="{{ old('DES') }}">
                         @error('DES')
                             <span class="text-danger">{{ $message }}</span>
                         @enderror
@@ -136,12 +140,8 @@
                 <div class="col-2">
                     <div class="mb-3">
                         <label for="COS" class="form-label">COS: </label>
-                        <input
-                          type="number"
-                          class="form-control @error('COS') is-invalid  @enderror"
-                          id="COS"
-                          name="COS"
-                          value="{{ old('COS')}}">
+                        <input type="number" class="form-control @error('COS') is-invalid  @enderror" id="COS"
+                            name="COS" value="{{ old('COS') }}">
                         @error('COS')
                             <span class="text-danger">{{ $message }}</span>
                         @enderror
@@ -150,12 +150,8 @@
                 <div class="col-2">
                     <div class="mb-3">
                         <label for="INT" class="form-label">INT: </label>
-                        <input
-                          type="number"
-                          class="form-control @error('INT') is-invalid  @enderror"
-                          id="INT"
-                          name="INT"
-                          value="{{ old('INT')}}">
+                        <input type="number" class="form-control @error('INT') is-invalid  @enderror" id="INT"
+                            name="INT" value="{{ old('INT') }}">
                         @error('INT')
                             <span class="text-danger">{{ $message }}</span>
                         @enderror
@@ -164,12 +160,8 @@
                 <div class="col-2">
                     <div class="mb-3">
                         <label for="SAG" class="form-label">SAG: </label>
-                        <input
-                          type="number"
-                          class="form-control @error('SAG') is-invalid  @enderror"
-                          id="SAG"
-                          name="SAG"
-                          value="{{ old('SAG')}}">
+                        <input type="number" class="form-control @error('SAG') is-invalid  @enderror" id="SAG"
+                            name="SAG" value="{{ old('SAG') }}">
                         @error('SAG')
                             <span class="text-danger">{{ $message }}</span>
                         @enderror
@@ -178,12 +170,8 @@
                 <div class="col-2">
                     <div class="mb-3">
                         <label for="CAR" class="form-label">CAR: </label>
-                        <input
-                          type="number"
-                          class="form-control @error('CAR') is-invalid  @enderror"
-                          id="CAR"
-                          name="CAR"
-                          value="{{ old('CAR')}}">
+                        <input type="number" class="form-control @error('CAR') is-invalid  @enderror" id="CAR"
+                            name="CAR" value="{{ old('CAR') }}">
                         @error('CAR')
                             <span class="text-danger">{{ $message }}</span>
                         @enderror
