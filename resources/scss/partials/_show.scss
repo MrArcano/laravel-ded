@@ -23,17 +23,27 @@
             box-shadow: 0 0 16px 4px black;
             object-fit: cover;
         }
-        span.name-character{
-            font-size: 2vw;
+        p.name-character{
+            max-width: 85%;
+
             box-shadow: 0px 0px 4px black, 0 0 24px #8f5922 inset;
             background-color: #fffef0;
             padding:8px 32px ;
-            text-wrap: nowrap;
             position: absolute;
             bottom: 2%;
             left: 50%;
             transform: translateX(-50%);
             z-index: 2;
+            strong{
+                text-wrap: nowrap;
+                font-size: 2vw;
+            }
+            span{
+                background-color: #fffef0;
+                position: absolute;
+                bottom: 100%;
+                right: 0;
+            }
         }
     }
     .attribute{

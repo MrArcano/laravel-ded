@@ -19,16 +19,32 @@
                 <div class="image m-auto">
                     <img src="{{ $character->image }}" alt="{{ $character->name }}">
 
-                    <span class="name-character"><strong>{{ $character->name }}</strong></span>
+                    <p class="name-character">
+                        <strong>{{ $character->name }}</strong>
+                        <span class="badge text-bg-paper mb-1">{{ $character->race->name }}</span>
+                    </p>
 
                 </div>
             </div>
             <div class="col">
                 <div class="p-3">
                     <p><strong>Descrizione: </strong>{{ $character->background }}</p>
-                    <p><strong>Altezza: </strong>{{ $character->height }} | <strong>Peso: </strong>{{ $character->weight }}
-                        | <strong>Classe Armor: </strong>{{ $character->armour_class }} | <strong>Razza:
-                        </strong>{{ $character->race->name }}</p>
+                    <p>
+                        <strong>Altezza: </strong>
+                        {{ $character->height }} |
+                        <strong>Peso: </strong>
+                        {{ $character->weight }} |
+                        <strong>Classe Armor: </strong>
+                        {{ $character->armour_class }}
+                    </p>
+                    <p>
+                        <strong class="d-block mb-1">Abilità: </strong>
+                        @forelse ($character->skills as $skill)
+                            <span class="badge text-bg-paper mb-2 me-2">{{ $skill?->name }}</span>
+                        @empty
+                            <span class="badge text-bg-paper mb-2">no skill</span>
+                        @endforelse
+                    </p>
                 </div>
                 <div class="row">
                     <div class="col-6 col-md-4 col-lg-2 my-3">
