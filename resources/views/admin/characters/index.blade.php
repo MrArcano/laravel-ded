@@ -19,7 +19,7 @@
             </div>
         </form> --}}
 
-        <table class="table table-dark mt-4">
+        <table class="table table-dark bg-opacity-csm mt-4">
             <thead>
                 <tr>
                     <th scope="col">#</th>

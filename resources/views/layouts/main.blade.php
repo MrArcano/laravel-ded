@@ -18,8 +18,16 @@
 
     @include('admin.partials.header')
 
-    <main class="container">
-        @yield('content')
+    <main>
+        <div class="m-auto position-relative text-center">
+            <img class="w-100" src="https://th.bing.com/th/id/OIG.vflLwoRxj_ur4fdcRpYI" alt="">
+            <div class="content position-absolute top-0 start-0 bottom-0 end-0">
+                <div class="container">
+                    @yield('content')
+                </div>
+            </div>
+        </div>
+
     </main>
 
 </body>

@@ -1,9 +1,13 @@
 @import '~bootstrap/scss/bootstrap';
 @import './partials/show';
+@import './partials/header';
 
 
 .text-bg-paper{
     box-shadow: 1px 1px 4px black, 0 0 8px #8f5922 inset;
     border: 1px solid black;
     color: black;
+}
+.bg-opacity-csm{
+    --bs-table-bg: rgba(33,37,41,0.8);
 }

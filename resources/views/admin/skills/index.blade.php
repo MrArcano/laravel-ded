@@ -8,7 +8,7 @@
             <a class="btn btn-success" href="{{ route('admin.skills.create') }}">Add <i class="fa-solid fa-circle-plus"></i></a>
         </div>
 
-        <table class="table table-dark mt-4">
+        <table class="table table-dark bg-opacity-csm mt-4">
             <thead>
                 <tr>
                     <th scope="col">#</th>
